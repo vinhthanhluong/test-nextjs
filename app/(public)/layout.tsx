@@ -1,3 +1,5 @@
+import Footer from "@/components/layout/footer";
+import Header from "@/components/layout/header";
 import Image from "next/image";
 
 interface LayoutPublicProps {
@@ -7,11 +9,9 @@ interface LayoutPublicProps {
 export default function LayoutPublic({ children }: LayoutPublicProps) {
   return (
     <div className="bg-blue-200 min-h-screen">
-      <header>
-        <h1>Layout Public</h1>
-      </header>
+      <Header/>
       {children}
-      <footer>Footer</footer>
+      <Footer/>
     </div>
   );
 }
