@@ -13,14 +13,18 @@ export default async function ListBlogs() {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts" , {
       cache: 'no-cache'
     });
+
+    // API tự tạo ở localhost
+    const myResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
+    const test = await myResponse.json();
+
+
     data = await response.json();
   } catch (error: any) {
     return (
       <div className="text-red-500">{error?.message || "Đã xảy ra lỗi!!"}</div>
     );
   }
-
-  console.log("🎄 ~ ListBlogs ~ response:", data);
 
   return (
     <div className="max-w-7xl mx-auto">
