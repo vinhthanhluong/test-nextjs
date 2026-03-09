@@ -15,7 +15,8 @@ export default async function ListBlogs() {
     });
 
     // API tự tạo ở localhost
-    const myResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
+    const myResponse = await fetch(`${baseUrl}/posts`);
     const test = await myResponse.json();
 
 
